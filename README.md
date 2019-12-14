@@ -9,3 +9,6 @@ We eventually will want to publish a tutorial setting up the webserver, forwardi
 
 ## Kanban Board
 [Our Kanban board!](https://tree.taiga.io/project/rmacias91-piconnect/kanban)
+Our Tickets will be PCON(#)-title-of-ticket
+Don't forget to link the ticket to the PR and link the PR in the ticket.
+PR's always go to Development!

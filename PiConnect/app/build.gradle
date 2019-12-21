@@ -42,4 +42,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 }

@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.connect_fragment.*
 
+const val CONNECT_FRAGMENT_TAG = "CONNECT_FRAGMENT"
 fun createConnectFragment() = ConnectFragment()
 class ConnectFragment : Fragment() {
 

@@ -28,7 +28,7 @@ class ConnectFragment : Fragment() {
         rv_pythonScripts_list.layoutManager = LinearLayoutManager(activity)
         val adapter = PythonScriptAdapter()
         rv_pythonScripts_list.adapter = adapter
-        viewModel.retrieveScripts().observe(this, Observer {
+        viewModel.retrieveScripts().observe(viewLifecycleOwner, Observer {
             adapter.setScripts(it)
         })
 

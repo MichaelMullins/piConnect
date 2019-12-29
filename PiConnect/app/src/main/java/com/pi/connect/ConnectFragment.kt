@@ -6,7 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.pi.connect.api.model.Script
+import kotlinx.android.synthetic.main.connect_fragment.*
 
+const val CONNECT_FRAGMENT_TAG = "CONNECT_FRAGMENT"
 fun createConnectFragment() = ConnectFragment()
 class ConnectFragment : Fragment() {
 
@@ -22,7 +27,13 @@ class ConnectFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ConnectViewModel::class.java)
-        // TODO: Use the ViewModel
+        rv_pythonScripts_list.layoutManager = LinearLayoutManager(activity)
+        val adapter = PythonScriptAdapter(clickListener ={script->viewModel.runScript(script)})
+        rv_pythonScripts_list.adapter = adapter
+        viewModel.retrieveScripts().observe(viewLifecycleOwner, Observer {
+            adapter.setScripts(it)
+        })
+
     }
 
 }

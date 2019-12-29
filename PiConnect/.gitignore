@@ -8,8 +8,12 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 /.idea/codeStyles/
+/.idea/
 .DS_Store
 /build
 /captures
 .externalNativeBuild
 .cxx
+.idea
+../.idea
+../.idea/

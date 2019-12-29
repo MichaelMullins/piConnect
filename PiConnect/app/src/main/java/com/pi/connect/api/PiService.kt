@@ -5,6 +5,7 @@ import com.squareup.moshi.Moshi
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 private const val BASE_URL = "http://192.168.1.10:5000/"
 
@@ -24,7 +25,7 @@ interface PiService {
     suspend fun getScripts(): List<Script>
 
     @GET("piConnect/v1/runScript")
-    fun runScript(scriptId: Int): List<Script>
+    fun runScript(@Query("id")scriptId: Int): List<Script>
 
 
 }

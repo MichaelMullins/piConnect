@@ -9,4 +9,8 @@ class Repo {
     suspend fun retrieveScripts(): List<Script> {
         return piService.getScripts()
     }
+    fun executeScript(scriptId: Int){
+        //tell (PiService) to run specified script
+        piService.runScript(scriptId)
+    }
 }

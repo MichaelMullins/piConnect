@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.pi.connect.api.model.Script
 import kotlinx.android.synthetic.main.connect_fragment.*
 
 const val CONNECT_FRAGMENT_TAG = "CONNECT_FRAGMENT"
@@ -27,13 +28,12 @@ class ConnectFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ConnectViewModel::class.java)
         rv_pythonScripts_list.layoutManager = LinearLayoutManager(activity)
-        val adapter = PythonScriptAdapter()
+        val adapter = PythonScriptAdapter(clickListener ={script->viewModel.runScript(script)})
         rv_pythonScripts_list.adapter = adapter
         viewModel.retrieveScripts().observe(viewLifecycleOwner, Observer {
             adapter.setScripts(it)
         })
 
     }
-
 
 }

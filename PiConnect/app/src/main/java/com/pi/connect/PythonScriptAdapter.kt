@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pi.connect.api.model.Script
 import kotlinx.android.synthetic.main.python_script_item.view.*
 
-class PythonScriptAdapter(private var items: List<Script> = listOf()) :
+class PythonScriptAdapter(private var items: List<Script> = listOf(), private val clickListener: (Script)-> Unit) :
     RecyclerView.Adapter<ViewHolder>() {
 
     override fun getItemCount(): Int {
@@ -28,15 +28,30 @@ class PythonScriptAdapter(private var items: List<Script> = listOf()) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.scriptItemTitle.text = items[position].name
+        (holder).bind(items[position], clickListener)
+
+
     }
 
-    fun setScripts(scripts:List<Script>){
+
+    fun setScripts(scripts:List<Script>)
+    {
         items = scripts
         notifyDataSetChanged()
     }
 }
 
-class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
+class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
+{
     val scriptItemTitle: TextView = view.script_item_title
+
+    fun bind(pythonScript: Script,  clickListener: (Script) -> Unit) {
+        itemView.script_item_title.text = pythonScript.name
+        itemView.setOnClickListener { clickListener(pythonScript)}
+
+    }
+
 }
+
+
+

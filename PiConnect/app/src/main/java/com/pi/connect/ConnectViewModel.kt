@@ -21,6 +21,12 @@ class ConnectViewModel : ViewModel() {
     fun retrieveScripts(): LiveData<List<Script>> {
         return scripts
     }
+    fun runScript(script: Script){
+        //tell repo.kt to run specified script
+        scriptRepo.executeScript(script.id!!) //!! needs to be removed after null checking
+    }
+
+
 
 
 }

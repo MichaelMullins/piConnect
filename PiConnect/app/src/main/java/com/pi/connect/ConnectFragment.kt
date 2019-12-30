@@ -1,12 +1,13 @@
 package com.pi.connect
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.connect_fragment.*
 
@@ -29,8 +30,11 @@ class ConnectFragment : Fragment() {
         rv_pythonScripts_list.layoutManager = LinearLayoutManager(activity)
         val adapter = PythonScriptAdapter()
         rv_pythonScripts_list.adapter = adapter
-        viewModel.retrieveScripts().observe(viewLifecycleOwner, Observer {
+        viewModel.scripts.observe(viewLifecycleOwner, Observer {
             adapter.setScripts(it)
+        })
+        viewModel.error.observe(viewLifecycleOwner, Observer {
+            Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
         })
 
     }

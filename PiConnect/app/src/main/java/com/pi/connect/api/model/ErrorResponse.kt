@@ -1,3 +1,6 @@
 package com.pi.connect.api.model
 
-data class ErrorResponse(val code: Int? = null, val message: String? = null)
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
+data class ErrorResponse(val message: String? = null)

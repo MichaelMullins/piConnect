@@ -12,5 +12,4 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.main_fragment_container, createConnectFragment(), CONNECT_FRAGMENT_TAG)
             .commit()
     }
-
 }

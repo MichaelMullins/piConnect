@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="32dp">
+
+
+    <TextView
+        android:id="@+id/text_ip_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="@string/edit_ip_address_pi"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/edit_ip_address"
+        />
+
+    <EditText
+        android:id="@+id/edit_ip_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/text_ip_address"
+        app:layout_constraintBottom_toTopOf="@id/button_ip_address"
+        android:maxLines="1"
+        android:autofillHints="Input Ip address here"
+        tools:targetApi="o"
+        tools:ignore="LabelFor,TextFields" />
+
+    <Button
+        android:id="@+id/button_ip_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/connect_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_ip_address"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

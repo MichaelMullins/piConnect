@@ -35,6 +35,9 @@ class SetUpFragment : Fragment() {
                 edit_ip_address.error = "IP Address did not connect successfully"
             }
         })
+        button_ip_address.setOnClickListener {
+            viewModel.connectToIpAddress(edit_ip_address.text.toString())
+        }
     }
 
     private fun navigateToConnectFragment() {

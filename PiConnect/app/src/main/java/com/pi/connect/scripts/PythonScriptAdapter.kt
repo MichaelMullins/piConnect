@@ -1,10 +1,11 @@
-package com.pi.connect
+package com.pi.connect.scripts
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.pi.connect.R
 import com.pi.connect.api.model.Script
 import kotlinx.android.synthetic.main.python_script_item.view.*
 

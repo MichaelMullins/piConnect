@@ -1,4 +1,4 @@
-package com.pi.connect
+package com.pi.connect.scripts
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.pi.connect.R
+import com.pi.connect.api.model.Script
 import kotlinx.android.synthetic.main.connect_fragment.*
 
 const val CONNECT_FRAGMENT_TAG = "CONNECT_FRAGMENT"
@@ -34,9 +36,15 @@ class ConnectFragment : Fragment() {
             adapter.setScripts(it)
         })
         viewModel.error.observe(viewLifecycleOwner, Observer {
+            //tmp to fill in data remove when done testing.
+            adapter.setScripts(
+                listOf(
+                    Script("script", 0),
+                    Script("script numbah 2", 1)
+                )
+            )
             Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
         })
-
     }
 
 

@@ -1,4 +1,4 @@
-package com.pi.connect
+package com.pi.connect.scripts
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PiConnect</string>
+    <string name="edit_ip_address_pi">IP Address of your Pi</string>
+    <string name="connect_button">Connect</string>
 </resources>
